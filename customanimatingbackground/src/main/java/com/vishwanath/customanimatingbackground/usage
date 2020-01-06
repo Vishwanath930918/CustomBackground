@@ -1,0 +1,65 @@
+0.Initialize the gradient builder, animator by calling
+" CustomBackground.initialize(<view>) "
+
+1.To set only a gradient background
+
+a) create a gradient like
+
+ -> var gradientResult = CustomBackground.setGradientViewFor(
+    <view>,
+    <GradientDrawable.Orientation>,
+    <start color:String>,
+    <middle color:String>,
+    <end color:String>,
+    <corner radius:Float>)
+
+b) set it as a background to whichever view you want like
+
+ -> <view>.background=gradientResult
+
+
+ 2. To set an animated background with a list of drawables
+
+ i) WITH GRADIENT DRAWABLES
+
+ a) create a list of Drawables like
+     var animationDrawablesList = arrayListOf<Drawable>()
+
+ b) create as many gradients as you want like in the above step 1.(b) and add them to the ' animationDrawablesList '
+
+ or
+
+ b) create as many objects of AnimationDrawableListItem  like
+
+  var animList = AnimationDrawableListItem(
+              main,
+              GradientDrawable.Orientation.BOTTOM_TOP,
+              "#D81B60",
+              "#00574B",
+              "#008577",
+              0.0f
+          )
+
+  and add them to the ' animationDrawablesList '
+
+ c) Set the animation list with the duration of your liking like
+    CustomBackground.setAnimationList(animationDrawableList, 5000)
+
+ d) Set animation on the view with transition duration of your liking like
+    CustomBackground.setAnimation(<view>, 2500)
+
+ ii) WITH PRE EXISTING DRAWABLE IMAGES
+
+ a) create a list of Drawables like
+      var animationDrawablesList = arrayListOf<Drawable>()
+
+  b) add the drawables/images of your choice to the ' animationDrawablesList ' like
+    getDrawable(R.drawable.dr_two)?.let { animationDrawableList.add(it) }
+
+  c) Set the animation list with the duration of your liking like
+     CustomBackground.setAnimationList(animationDrawableList, 5000)
+
+  d) Set animation on the view with transition duration of your liking like
+     CustomBackground.setAnimation(<view>, 2500)
+
+

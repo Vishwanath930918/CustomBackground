@@ -1,0 +1,2 @@
+include ':app', ':customanimatingbackground'
+rootProject.name='CustomBackground'
